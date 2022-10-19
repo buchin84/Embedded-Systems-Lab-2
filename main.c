@@ -1,25 +1,30 @@
 #include <msp430.h> 
 
-
 /**
  * main.c
  */
+int sum(int a, int b)
+{
 
-float b = 5;
+    int sum = a + b;
+
+    return sum;
+
+}
+
 int main(void)
 {
-	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	int a = 3;
-	a+=1;
-	b-=1;
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-	unsigned char c = 0x0f;
-	unsigned char d = 0x5;
+    int a = 0b1111111111111110;
+    int b = 0b1000000000000000;
+    int d;
 
-	unsigned char e;
-	unsigned char f;
+    d = sum(a,b);
 
-	e = c & d;
-	f = c | d;
-	return 0;
+    while(1);
+
+
+
+    return 0;
 }
